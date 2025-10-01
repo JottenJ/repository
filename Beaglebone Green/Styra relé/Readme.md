@@ -1,4 +1,4 @@
-styra ett relé 
+#styra ett relé med beaglebone
 
 här är alla pins på beagle boarden 
 ![Bbg_header_1](https://github.com/user-attachments/assets/2eda1d80-4660-4c61-8039-6266a0e13e94)
@@ -26,3 +26,4 @@ while True:
     time.sleep(1)
     line.set_value(0)
     time.sleep(1)
+

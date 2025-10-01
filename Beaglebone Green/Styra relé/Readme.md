@@ -13,6 +13,7 @@ sudo apt-get install python3-smbus i2c-tools
 
 
 här är python koden
+rätt form till koden finns i en annan fil
 
 import gpiod
 import time
@@ -26,4 +27,5 @@ while True:
     time.sleep(1)
     line.set_value(0)
     time.sleep(1)
+
 

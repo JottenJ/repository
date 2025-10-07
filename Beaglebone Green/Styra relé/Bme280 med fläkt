@@ -1,0 +1,46 @@
+import smbus2
+import bme280
+import gpiod
+import time
+
+# ---- BME280 inställningar ----
+I2C_BUS = 2            # På BeagleBone oftast /dev/i2c-2
+BME280_ADDRESS = 0x76  # eller 0x77 beroende på modul
+
+bus = smbus2.SMBus(I2C_BUS)
+calibration_params = bme280.load_calibration_params(bus, BME280_ADDRESS)
+
+# ---- GPIO inställningar ----
+chip = gpiod.Chip('gpiochip0')
+line = chip.get_line(28)   # välj rätt GPIO‑nummer för ditt relä
+line.request(consumer="fan", type=gpiod.LINE_REQ_DIR_OUT)
+
+# ---- Temperaturgräns ----
+THRESHOLD = 22.0  # °C
+
+print("Startar temperaturstyrning. Ctrl+C för att avsluta.")
+
+try:
+    while True:
+        # Läs sensorn
+        data = bme280.sample(bus, BME280_ADDRESS, calibration_params)
+        temp = data.temperature
+
+        print(f"Temp: {temp:.2f} °C")
+
+        # Styr reläet
+        if temp > THRESHOLD:
+            line.set_value(1)  # slå på fläkt
+            print("Fläkt: PÅ")
+        else:
+            line.set_value(0)  # stäng av fläkt
+            print("Fläkt: AV")
+
+        print("-----")
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    print("Avslutar...")
+finally:
+    line.set_value(0)  # stäng av fläkt vid avslut
+    line.release()

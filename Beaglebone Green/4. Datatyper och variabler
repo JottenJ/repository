@@ -1,0 +1,201 @@
+4. Datatyper och variabler
+
+Introduktion till datatyper och variabler
+
+Vad är en variabel? https://www.youtube.com/watch?v=KW6qncswzHw&ab_channel=VisuallyExplained
+
+En variabel är ett grundläggande begrepp inom programmering och matematik. Den fungerar som en namngiven behållare där man kan lagra ett värde som kan ändras under programmets gång.
+
+I programmering:
+
+En variabel används för att lagra data som du vill använda senare. Du ger variabeln ett namn och tilldelar den ett värde.
+
+Grundläggande datatyper: int, float, str, bool
+
+int – Heltal
+
+· Används för att representera heltal, t.ex. 1, -5, 1000.
+
+float – Decimaltal
+
+· Används för att representera tal med decimaler, t.ex. 3.14, -0.5.
+
+str – Sträng (text)
+
+· Används för att representera text, alltså en sekvens av tecken.
+
+bool – Boolean (sant/falskt)
+
+· Används för att representera logiska värden: True eller False.
+
+Typkonvertering (int(), str(), etc.)
+
+Typkonvertering innebär att man ändrar datatypen på ett värde i Python. Det är användbart när du vill t.ex. omvandla ett tal till en sträng, eller en sträng till ett tal.
+
+Här är de vanligaste konverteringsfunktionerna:
+
+Funktion Beskrivning Exempel
+
+int() Konverterar till heltal int("5") → 5
+
+float() Konverterar till decimaltal float("3.14") → 3.14
+
+str() Konverterar till sträng str(42) → "42"
+
+Funktion Beskrivning Exempel
+
+bool() Konverterar till booleskt värde bool(0) → False, bool("hej") → True
+
+
+Exempel:
+
+# Från sträng till heltal
+
+siffra_str = "10"
+
+siffra_int = int(siffra_str)
+
+print(siffra_int + 5) # Output: 15
+
+# Från heltal till sträng
+
+ålder = 35
+
+text = "Jag är " + str(ålder) + " år gammal."
+
+print(text)
+
+# Från sträng till float
+
+decimal_str = "3.5"
+
+decimal_tal = float(decimal_str)
+
+print(decimal_tal * 2) # Output: 7.0
+
+# Från olika värden till bool
+
+print(bool(0)) # False
+
+print(bool(1)) # True
+
+print(bool("")) # False
+
+print(bool("text")) # True
+
+
+Listor och indexering https://www.youtube.com/watch?v=gOMW_n2-2Mw&ab_channel=BroCode
+
+Vad är en lista?
+
+En lista är en sekvens av element som kan vara av olika datatyper: heltal, strängar, andra listor, etc.
+
+min_lista = [1, 2, 3, 4]
+
+namn_lista = ["Daniel", "Eric", "Elias", "Otto", "Emil", "Luca", “Max”]
+
+Åtkomst till element
+
+print(min_lista[0]) # Output: 1 (första elementet)
+
+print(namn_lista[-1]) # Output: "Max" (sista elementet)
+
+Ändra ett värde
+
+min_lista[1] = 99
+
+print(min_lista) # Output: [1, 99, 3, 4]
+
+Lägga till element
+
+min_lista.append(5) # Lägg till i slutet
+
+min_lista.insert(2, 100) # Lägg till på position 2
+
+Ta bort element
+
+min_lista.remove(99) # Tar bort första förekomsten av 99
+
+min_lista.pop() # Tar bort sista elementet
+
+Längd på lista
+
+print(len(min_lista)) # Antal element
+
+Loop genom en lista
+
+for namn in namn_lista:
+
+print("Hej", namn)
+
+
+Vad händer om du försöker komma åt ett index som inte finns?
+
+
+Tuples och skillnaden mot listor https://www.youtube.com/watch?v=11WrzU81q68&ab_channel=VisuallyExplained
+
+1. Skapa en tuple med din födelsedag.
+
+2. Försök ändra ett värde – vad händer?
+
+3. Iterera över en tuple med for-loop.
+
+
+När är det bättre att använda en tuple än en lista?
+
+
+Dictionaries och nyckel-värde-par
+
+En samling av nyckel-värde-par.
+
+Jämför med en ordbok: ett ord (nyckel) och dess definition (värde).
+
+Teori:
+
+· Skapa en dictionary
+
+· Åtkomst via nyckel: person["namn"]
+
+· Lägg till och ta bort nycklar
+
+person = {
+
+"namn": "Alfred",
+
+"ålder": 35,
+
+"lärare": True
+
+}
+
+Åtkomst till värden
+
+print(person["namn"])
+
+Ändra värden
+
+person["ålder"] = 35
+
+Lägga till nyckel-värde-par
+
+person["stad"] = "Porvoo"
+
+Ta bort nyckel
+
+del person["lärare"]
+
+
+Vad händer om du försöker komma åt en nyckel som inte finns?
+
+
+Iteration och metoder
+
+Loopa genom en dictionary
+
+for nyckel, värde in person.items():
+
+print(nyckel, ":", värde)
+
+
+
+Vilken datatyp tyckte du var mest användbar? Varför?
